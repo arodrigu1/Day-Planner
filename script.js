@@ -10,7 +10,7 @@ $(document).ready(function() {
     console.log('time:', time);
 
     // save the value in localStorage as time
-    
+    localStorage.setItem(time, value)
   });
 
   function hourUpdater() {
@@ -22,7 +22,7 @@ $(document).ready(function() {
     $(".time-block").each(function() {
       var blockHour = parseInt($(this).attr("id").split("-")[1]);
       var textArea =$("textarea");
-      
+
       console.log("block hour:", blockHour);
 
       // check if we've moved past this time
@@ -31,12 +31,12 @@ $(document).ready(function() {
       // then add class "past"
       $(this).addClass("past");
       // if they are equal
-      // then remove class "past" and add class "present"
       } else if (blockHour === currentHour) {
+      // then remove class "past" and add class "present"
       $(this).removeClass("past").addClass("present");
       // else
-      // remove class "past", remove class "present", add class "future"
       } else {
+      // remove class "past", remove class "present", add class "future"
       $(this).removeClass("past").removeClass("present").addClass("future");
 
       }
